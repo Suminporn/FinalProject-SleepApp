@@ -8,7 +8,6 @@ export default function Explore() {
         </header>
         <main>
           <h1 className="text-[30px] font-bold text-white">Collections</h1>
-          <h2 className="text-black bg-orange-200 shadow-md rounded-[20px] flex p-5 mb-3">Podcasts</h2>
           <h2 className="text-black bg-orange-200 shadow-md rounded-[20px] flex p-5 mb-3">New and Popular</h2>
           <h2 className="text-black bg-orange-200 shadow-md rounded-[20px] flex p-5 mb-3">Woman's Collection</h2>
           <h2 className="text-black bg-orange-200 shadow-md rounded-[20px] flex p-5 mb-3">Calming Everyday Anxiety</h2>

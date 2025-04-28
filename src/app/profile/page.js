@@ -1,16 +1,46 @@
+'use client';
+
 import MenuBar from "@/components/Menubar";
 import Card from "@/components/Card";
 
+import { useState, useEffect } from 'react';
+
 export default function Profile() {
+  const [sleepTime, setSleepTime] = useState('');
+
+  useEffect(() => {
+    if (!sleepTime) return;
+
+    const interval = setInterval(() => {
+      const now = new Date();
+      const [hour, minute] = sleepTime.split(':').map(Number);
+
+      if (now.getHours() === hour && now.getMinutes() === minute) {
+        alert('ถึงเวลานอนแล้ว! ฝันดีนะ 😴');
+        clearInterval(interval);
+      }
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, [sleepTime]);
+
     return (
-        <div className="p-[16px] flex flex-col ml-3 mr-3 gap-5">
-        <header className="flex justify-center mt-15">
-          <img className="w-[100px] h-[100px]" src="https://avatar.iran.liara.run/public/46"/>
-        </header>
-        <main>
-          <h1 className="text-[30px] font-bold text-white">Activity History</h1>
-          <Card name="Rainday Antiques" mediatype="Sleepcast" time="45 min" imageUrl="https://www.godubrovnik.com/wp-content/uploads/rainy-day.jpg"/>
-        </main>
-      </div>
+        <div className="p-8 flex flex-col">
+          <header className="flex justify-center mt-15">
+            <img className="w-[100px] h-[100px]" src="https://avatar.iran.liara.run/public/46"/>
+          </header>
+          <main>
+            <div className="py-5 mt-5 text-white">
+              <h3 className="text-[30px] font-bold pb-5">Setting Sleep Time</h3>
+              <input className="p-5 bg-[#353A67] shadow-md rounded-[20px] text-[28px]"
+              type="time"
+              value={sleepTime}
+              onChange={(e) => setSleepTime(e.target.value)}
+              />
+            </div>
+            <h1 className="text-[30px] font-bold text-white">Activity History</h1>
+              <Card name="Rainday Antiques" mediatype="Sleepcast" time="45 min" imageUrl="https://www.godubrovnik.com/wp-content/uploads/rainy-day.jpg"/>
+          </main>
+        </div>
     )
   }
