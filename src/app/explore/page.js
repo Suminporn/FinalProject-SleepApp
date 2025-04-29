@@ -2,9 +2,9 @@ import MenuBar from "@/components/Menubar";
 
 export default function Explore() {
   return (
-      <div className="p-[16px] flex flex-col ml-3 mr-3 gap-5">
+      <div className="p-8 flex flex-col ml-3 mr-3 gap-5">
         <header className="justify-center mb-[10px]">
-          <input type="text" placeholder="Search" className="text-white p-[16px] rounded-[20px] w-[100%] bg-[#353A67]"/>
+          <input type="text" placeholder="Search" className="text-white p-4 rounded-[20px] w-[100%] bg-[#353A67]"/>
         </header>
         <main>
           <h1 className="text-[30px] font-bold text-white">Collections</h1>

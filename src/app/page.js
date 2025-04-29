@@ -5,13 +5,15 @@ import Card from "@/components/Card";
 import { useState, useEffect } from 'react';
 
 const songs = [
-  {title: "Ocean Waves", url: '/music/ocean-waves.mp3'}
+  {title: "Ocean Waves", url: '/musics/ocean-waves.mp3', media: "Nature", image: "https://www.godubrovnik.com/wp-content/uploads/rainy-day.jpg"},
+  {title: "Raining Weather", url: '/musics/raining.mp3', media: "Nature", image: "https://st3.depositphotos.com/1400069/35282/i/450/depositphotos_352828632-stock-photo-spring-rain-forest-fresh-branches.jpg"},
+  {title: "Peaceful Sleep", url: '/musics/peaceful-sleep.mp3', media: "Music", image: "https://img.freepik.com/premium-photo/cozy-bedroom-adorned-with-starshaped-lights-walls-creating-dreamy-magical-nighttime-ambiance_1323182-658.jpg"},
+  {title: "Relaxing Piano", url: '/musics/relaxing-piano.mp3', media: "Nature", image: "https://cdn.pixabay.com/video/2022/10/12/134486-759714562_tiny.jpg"}
 ];
 
 export default function Home() {
     const [currentSong, setCurrentSong] = useState(null);
     const [audio, setAudio] = useState(null);
-    const [sleepTime, setSleepTime] = useState('');
     const [fadeOut, setFadeOut] = useState(false);
     const [opacity, setOpacity] = useState(1);
   
@@ -76,21 +78,18 @@ export default function Home() {
       <img className="w-[40px] h-[40px] p-[5px]" src="/recenticon.png" />
      </header>
 
-    <main className="flex flex-col justify-center ml-5 mr-5">
+    <main className="flex flex-col ml-5 mr-5">
       <h1 className="text-[20px] font-semibold text-white opacity-70">Good evening</h1>
       <h2 className="text-[30px] font-bold text-white">At night</h2>
-      <div className="ml-8">
-        <Card name="Rainday Antiques" mediatype="Sleepcast" time="45 min" imageUrl="https://www.godubrovnik.com/wp-content/uploads/rainy-day.jpg" />
-        <button className="m-1 p-2 text-[16px] text-white" onClick={playRandomSong}>สุ่มเพลงช่วยนอนหลับ</button>
-            {currentSong && (
-                <div className="mt-2 text-white">
-                    <h2>now playing.. : {currentSong.title}</h2>
-                </div>)}
-        <Card name="John Legend's Sleep playlist" mediatype="Sleep music" time="500 min" imageUrl="https://avatar.iran.liara.run/public/69" />
+      <div className="flex justify-center mt-5 rounded-[20px] bg-blue-500/30 border-white border-1 ml-8">
+        <button onClick={playRandomSong} className="text-[24px] text-white font-bold p-3 ">Random music</button>
       </div>
-      <Menubar/>
-     </main>
-     {fadeOut && (
+      <div className="ml-8">
+        {currentSong && (
+            <Card name={currentSong.title} mediatype={currentSong.media} imageUrl={currentSong.image} />
+        )}
+      </div>
+      {fadeOut && (
         <div
           style={{
             position: 'fixed',
@@ -105,6 +104,9 @@ export default function Home() {
           }}
         ></div>
       )}
+      <Menubar/>
+     </main>
+     
     </div>
   );
 }
