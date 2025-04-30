@@ -8,7 +8,7 @@ const songs = [
   {title: "Ocean Waves", url: '/musics/ocean-waves.mp3', media: "Nature", image: "https://www.godubrovnik.com/wp-content/uploads/rainy-day.jpg"},
   {title: "Raining Weather", url: '/musics/raining.mp3', media: "Nature", image: "https://st3.depositphotos.com/1400069/35282/i/450/depositphotos_352828632-stock-photo-spring-rain-forest-fresh-branches.jpg"},
   {title: "Peaceful Sleep", url: '/musics/peaceful-sleep.mp3', media: "Music", image: "https://img.freepik.com/premium-photo/cozy-bedroom-adorned-with-starshaped-lights-walls-creating-dreamy-magical-nighttime-ambiance_1323182-658.jpg"},
-  {title: "Relaxing Piano", url: '/musics/relaxing-piano.mp3', media: "Nature", image: "https://cdn.pixabay.com/video/2022/10/12/134486-759714562_tiny.jpg"}
+  {title: "Relaxing Piano", url: '/musics/relaxing-piano.mp3', media: "Music", image: "https://cdn.pixabay.com/video/2022/10/12/134486-759714562_tiny.jpg"}
 ];
 
 export default function Home() {
